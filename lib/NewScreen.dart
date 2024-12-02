@@ -113,7 +113,7 @@ class NewScreenState extends State<NewScreen> {
               Container(
                 margin: EdgeInsets.all(0),
                 padding: EdgeInsets.all(0),
-                width: 290,
+                width: 330,
                 height: 80,
                 decoration: BoxDecoration(
                   color: Color(0x00000000),
@@ -141,7 +141,7 @@ class NewScreenState extends State<NewScreen> {
               Container(
                 margin: EdgeInsets.fromLTRB(15, 5, 15, 0),
                 padding: EdgeInsets.all(0),
-                width: 260,
+                width: 300,
                 height: 125,
                 decoration: BoxDecoration(
                   color: Color(0x00000000),
@@ -208,7 +208,7 @@ class NewScreenState extends State<NewScreen> {
               Container(
                 margin: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
                 padding: EdgeInsets.all(0),
-                width: 115,
+                width: 155,
                 height: 70,
                 decoration: BoxDecoration(
                   color: Color(0x1f000000),
@@ -236,8 +236,8 @@ class NewScreenState extends State<NewScreen> {
               Container(
                 margin: EdgeInsets.fromLTRB(15, 0, 15, 15),
                 padding: EdgeInsets.all(0),
-                width: 260,
-                height: 295,
+                width: 300,
+                height: 265,
                 decoration: BoxDecoration(
                   color: Color(0x1f000000),
                   shape: BoxShape.rectangle,
