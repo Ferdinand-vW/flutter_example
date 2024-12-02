@@ -6,6 +6,7 @@ import 'dart:math';
 
 import 'package:easy_isolate/easy_isolate.dart';
 import 'package:flutter/material.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:provider/provider.dart';
 
 class GeneratePoem {
@@ -21,8 +22,25 @@ class GeneratePoemProgress {
 
 class MyAppState extends ChangeNotifier {
   MyAppState(this.worker);
+  final controller = GifController(
+    autoPlay: false,
+    loop: true,
+    inverted: false,
+    onStart: () {
+
+    },
+    onFinish:() {
+
+    },
+    onFrame:(int) {
+
+    }
+  );
   var rng = Random();
   var current = "";
+  var gif = AssetImage("assets/images/SintGifV4.gif");
+  var img = AssetImage("assets/images/SintStatic.png");
+  var imgSource = AssetImage("assets/images/SintStatic.png");
   bool isGeneratingPoem = false;
   static final list = [
     poem1,
@@ -49,10 +67,27 @@ class MyAppState extends ChangeNotifier {
 
   Worker worker;
 
+  void onStart() {
+
+  }
+
+  void onFinish() {
+
+  }
+
+  void onFrame(int i) {
+    // return i;
+  }
+
   void progressHandler(dynamic data, SendPort isolateSendPort) {
     if (data is GeneratePoemProgress) {
       current = data.peomText;
       isGeneratingPoem = !data.isComplete;
+      if (data.isComplete) {
+        imgSource = img;
+        controller.stop();
+        controller.seek(0);
+      }
       notifyListeners();
     }
   }
@@ -82,6 +117,7 @@ class MyAppState extends ChangeNotifier {
 
   void getRandom() {
     worker.sendMessage(GeneratePoem(rng.nextInt(list.length)));
+    controller.play();
   }
 }
 
@@ -91,8 +127,6 @@ class NewScreen extends StatefulWidget {
 }
 
 class NewScreenState extends State<NewScreen> {
-  var rng = Random();
-  var current = "";
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +159,7 @@ class NewScreenState extends State<NewScreen> {
 
                     ///***If you have exported images you must have to copy those images in assets/images directory.
                     Image(
-                  image: AssetImage("assets/images/SintGPTV2.png"),
+                  image: AssetImage("assets/images/SintGPTV5.png"),
                   height: 100,
                   width: 140,
                   fit: BoxFit.cover,
@@ -183,6 +217,8 @@ class NewScreenState extends State<NewScreen> {
                   onPressed: () {
                     if (!appState.isGeneratingPoem) {
                       appState.getRandom();
+                      // appState.imgSource = appState.gif;
+                      appState.controller.play();
                     }
                   },
                   color: Color(0xffea313a),
@@ -217,13 +253,17 @@ class NewScreenState extends State<NewScreen> {
                   border: Border.all(color: Color(0x4d9e9e9e), width: 1),
                 ),
                 child:
-
-                    ///***If you have exported images you must have to copy those images in assets/images directory.
-                    Image(
-                  image: AssetImage("assets/images/MeinteKlaasV2.png"),
-                  height: 100,
+                  GifView.asset("assets/images/SintGifV5.gif",
+                  height: 180,
                   width: 140,
                   fit: BoxFit.cover,
+                  controller: appState.controller
+                    ///***If you have exported images you must have to copy those images in assets/images directory.
+                  //   Image(
+                  // image: appState.imgSource,
+                  // height: 100,
+                  // width: 140,
+                  // fit: BoxFit.cover,
                 ),
               ),
             ],

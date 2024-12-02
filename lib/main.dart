@@ -3,6 +3,7 @@
 import 'package:easy_isolate/easy_isolate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterviz/NewScreen.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 // import 'package:window_size/window_size.dart';
