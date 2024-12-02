@@ -13,7 +13,7 @@ void main() async {
     // setWindowMaxSize(const Size(400, 1000));
     await windowManager.ensureInitialized();
     WindowOptions windowOptions = WindowOptions(
-    size: Size(346, 600),
+    size: Size(346, 580),
   );
 
   windowManager.waitUntilReadyToShow(windowOptions, () async {

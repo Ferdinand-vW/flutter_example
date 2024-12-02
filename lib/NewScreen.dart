@@ -176,7 +176,7 @@ class NewScreenState extends State<NewScreen> {
                 margin: EdgeInsets.fromLTRB(15, 5, 15, 0),
                 padding: EdgeInsets.all(0),
                 width: 300,
-                height: 125,
+                height: 105,
                 decoration: BoxDecoration(
                   color: Color(0x00000000),
                   shape: BoxShape.rectangle,
@@ -184,7 +184,7 @@ class NewScreenState extends State<NewScreen> {
                   border: Border.all(color: Color(0x4d9e9e9e), width: 1),
                 ),
                 child: Text(
-                  "Hey Meinte!\nJe bent nog niet lang in ons midden, dus er valt nog veel over je te leren. Daarom heb ik de rest van dit gedicht, met ChatGPT laten automatiseren:",
+                  "Hey Meinte!\nJe bent nog niet lang in ons midden, dus er valt nog veel over je te leren. Daarom heb ik de rest van dit gedicht met ChatGPT laten automatiseren:",
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.clip,
                   style: TextStyle(
